@@ -1,16 +1,19 @@
 ```bash
 $ node Test.js 
-(node:193781) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(node:11997) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:1031
-      const instance = await WebAssembly.instantiate(module, imports);
-                                         ^
+wasm://wasm/00708e96:1
 
-TypeError: WebAssembly.instantiate(): Import #33 module="extism:host/user" error: module is not an object or function
-    at file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:1031:42
-    at Array.map (<anonymous>)
-    at createForegroundPlugin (file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:1030:13)
-    at async main (file:///PROJ/DEV/openagents-extism-runtime/build/js/test/Test.js:17:24)
+
+RuntimeError: unreachable
+    at wasm://wasm/00708e96:wasm-function[1152]:0xb7eb7
+    at wasm://wasm/00708e96:wasm-function[1291]:0xcb584
+    at wasm://wasm/00708e96:wasm-function[1293]:0xcb660
+    at wasm://wasm/00708e96:wasm-function[1358]:0xd05e3
+    at wasm://wasm/00708e96:wasm-function[1375]:0xd18e1
+    at ForegroundPlugin.callBlock (file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:965:7)
+    at ForegroundPlugin.call (file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:976:46)
+    at main (file:///PROJ/DEV/openagents-extism-runtime/build/js/test/Test.js:18:38)
 
 Node.js v18.17.1
 ```

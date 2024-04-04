@@ -1,11 +1,11 @@
 
+
 import * as Extism from "@extism/extism";
 async function main() {
     const plugin = Extism.createPlugin("./plugin/plugin.wasm", {
         useWasi: true,
-
         functions: {
-            env: {
+            "extism:host/user": {
                 Test_success(cp, offs) {
                     const value = cp.read(offs).text();
                     console.log(value);
@@ -14,7 +14,7 @@ async function main() {
             }
         },
     });
-    const res = await (await plugin).call("run", "{}");
+    const res = await (await plugin).call("run");
     console.log(res);
 }
 main();
