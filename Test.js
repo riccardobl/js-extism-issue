@@ -7,14 +7,18 @@ async function main() {
         functions: {
             "extism:host/user": {
                 Test_success(cp, offs) {
-                    const value = cp.read(offs).text();
-                    console.log(value);
+                    const pluginOut = cp.read(offs);
+                    const value = pluginOut.text();
+                    console.log("Plugin call",pluginOut);
+                    console.log(`Value received from plugin: ${value}`);
+                    const expecting = "Hello from js 1";
+                    if (expecting!=value)console.error(`\n\n!ERROR\nWas expecting'${expecting}' but received '${value}'\n\n`);
                     return offs;
                 }
             }
         },
     });
     const res = await (await plugin).call("run");
-    console.log(res);
+    console.log("Execution out:",res);
 }
 main();

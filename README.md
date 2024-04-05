@@ -1,19 +1,30 @@
 ```bash
-$ node Test.js 
-(node:11997) ExperimentalWarning: WASI is an experimental feature and might change at any time
+$ bash run.sh 
+
+up to date, audited 2 packages in 460ms
+
+found 0 vulnerabilities
+(node:47057) ExperimentalWarning: WASI is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-wasm://wasm/00708e96:1
+Send Hello from js 1 to host
+Plugin call _PluginOutput [DataView] {
+  byteLength: 1,
+  byteOffset: 0,
+  buffer: ArrayBuffer { [Uint8Contents]: <00>, byteLength: 1 }
+}
+Value received from plugin: 
 
 
-RuntimeError: unreachable
-    at wasm://wasm/00708e96:wasm-function[1152]:0xb7eb7
-    at wasm://wasm/00708e96:wasm-function[1291]:0xcb584
-    at wasm://wasm/00708e96:wasm-function[1293]:0xcb660
-    at wasm://wasm/00708e96:wasm-function[1358]:0xd05e3
-    at wasm://wasm/00708e96:wasm-function[1375]:0xd18e1
-    at ForegroundPlugin.callBlock (file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:965:7)
-    at ForegroundPlugin.call (file:///PROJ/DEV/openagents-extism-runtime/node_modules/@extism/extism/dist/esm/mod.js:976:46)
-    at main (file:///PROJ/DEV/openagents-extism-runtime/build/js/test/Test.js:18:38)
+!ERROR
+Was expecting'Hello from js 1' but received ''
 
-Node.js v18.17.1
+
+Execution out: _PluginOutput [DataView] {
+  byteLength: 7,
+  byteOffset: 0,
+  buffer: ArrayBuffer {
+    [Uint8Contents]: <48 65 6c 6c 6f 20 30>,
+    byteLength: 7
+  }
+}
 ```
